@@ -1,5 +1,5 @@
 {{your python code goes here}} by having python code inside the curly brackets, inside an html file, we can tell it to
-evaluate the code as python and so something like 5 * 6 will show up as 30 instead of literally "5 * 6"
+evaluate the code as a single-line python expression and so something like 5 * 6 will show up as 30 instead of literally "5 * 6"
 
 You can import variables into the HTML template as well
 1. go to the flask app python code
@@ -9,7 +9,7 @@ You can import variables into the HTML template as well
     this way it passes th variable over to the template HTML code and can be evaluated as the python variable. 
     Render_template can take unlimited keyword arguments.
     
-FLASK APP PYTHOON FILE:
+FLASK APP PYTHON FILE:
 from flask import Flask, render_template
 import random
 
