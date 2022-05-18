@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="top">
+        <div class="title"><h1>My Blog</h1></div>
+    </div>
+    <!--  using Jinja (python inside of an html file), to use a for loop to dynamically create the "cards" inside
+    the index webpage. The for loop iterates through each element in the 'blogs' variable (which was passed in, in the
+    render_template, and contains all the blog data in list form). In each iteration, it creates the card and pulls in
+    that iterations post.title and post.subtitle. Lastly, it creates a hyperlink and and constructs that hyperlink so that
+    when someone clicks on it, it will activate the get_blog function (on the main.py), and it will also pass in whatever
+    that iterations post.id was into that get_blog function (under the variable clicked_post_id)
+    -->
+    {% for post in blogs: %}
+    <div class="content">
+        <div class="card">
+            <h2>{{ post.title }} </h2>
+            <p class="text">{{ post.subtitle }} </p>
+            <a href="{{ url_for('get_blog', clicked_post_id=post.id) }}">Read</a>
+        </div>
+    </div>
+    {% endfor %}
+
+
+</div>
+</body>
+<footer>
+    <p>Made with ♥️ in London.</p>
+</footer>
+</html>
