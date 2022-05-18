@@ -1,0 +1,40 @@
+{{your python code goes here}} by having python code inside the curly brackets, inside an html file, we can tell it to
+evaluate the code as python and so something like 5 * 6 will show up as 30 instead of literally "5 * 6"
+
+You can import variables into the HTML template as well
+1. go to the flask app python code
+2. import the module if needed
+3. create & assign the variable
+4. add it in as an input into the render_template function, after the name of the html file (e.g. "index.html")
+    this way it passes th variable over to the template HTML code and can be evaluated as the python variable. 
+    Render_template can take unlimited keyword arguments.
+    
+FLASK APP PYTHOON FILE:
+from flask import Flask, render_template
+import random
+
+app = Flask(__name__)
+
+
+@app.route('/')
+def home():
+    random_num = random.randint(1, 10)
+    return render_template("index.html", num=random_num)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+    
+INDEX.HTML FILE:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Website</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <h2>{{5 * 6}}</h2>
+    <h3>Random Number: {{num}}</h3>
+</body>
+</html>
